@@ -27,6 +27,11 @@
 		"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint"
 	},
 
+	"runArgs": [
+		// SSH
+		"-v",
+		"${localEnv:HOME}/.ssh:/home/vscode/.ssh:ro",
+	],
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"ms-python.python",
