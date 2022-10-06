@@ -9,12 +9,14 @@
 		// if it already exists to update. Available variants: 3, 3.6, 3.7, 3.8 
 		"args": { "VARIANT": "3.10" }
 	},
-
+    "mounts": [
+		"source=${env:HOME}${env:USERPROFILE}/.aws,target=/home/vscode/.aws,type=bind"
+	]	
 	"containerEnv": {
 		"GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}",
 		"GITHUB_USER": "${localEnv:GITHUB_USER}"     // I export this variable within my dot file
 	},
-	
+ // xx	
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
 //		"terminal.integrated.shell.linux": "/bin/bash",
