@@ -11,7 +11,8 @@
 	},
     "mounts": [
 		"source=${env:HOME}${env:USERPROFILE}/.aws,target=/home/vscode/.aws,type=bind"
-	]	
+	],
+
 	"containerEnv": {
 		"GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}",
 		"GITHUB_USER": "${localEnv:GITHUB_USER}"     // I export this variable within my dot file
