@@ -28,3 +28,10 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
 
 # Install the CDK
 RUN npm install -g aws-cdk
+
+# Install poetry
+# https://gist.github.com/jthorniley/fba81c62a9d45c723777c7205ff96481
+USER vscode
+RUN curl -sSL https://install.python-poetry.org | python3 -
+ENV PATH "/home/vscode/.poetry/bin:$PATH"
+RUN /home/vscode/.local/bin/poetry config virtualenvs.in-project true
