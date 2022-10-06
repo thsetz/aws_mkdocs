@@ -16,10 +16,12 @@
 		"GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}",
 		"GITHUB_USER": "${localEnv:GITHUB_USER}"     // I export this variable within my dot file
 	},
+
+
 	// adapted
+
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
-//		"terminal.integrated.shell.linux": "/bin/bash",
 		"python.pythonPath": "/usr/local/bin/python",
 		"python.linting.enabled": true,
 		"python.linting.pylintEnabled": true,
@@ -39,6 +41,7 @@
 //		"-v",
 //		"${localEnv:HOME}/.ssh:/home/vscode/.ssh:ro",
 //	],
+ 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"ms-python.python",
