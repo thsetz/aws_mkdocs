@@ -16,7 +16,6 @@
 		"GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}",
 		"GITHUB_USER": "${localEnv:GITHUB_USER}"     // I export this variable within my dot file
 	},
- // xx	
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
 //		"terminal.integrated.shell.linux": "/bin/bash",
