@@ -27,11 +27,11 @@
 		"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint"
 	},
 
-	"runArgs": [
+//	"runArgs": [
 		// SSH
-		"-v",
-		"${localEnv:HOME}/.ssh:/home/vscode/.ssh:ro",
-	],
+//		"-v",
+//		"${localEnv:HOME}/.ssh:/home/vscode/.ssh:ro",
+//	],
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"ms-python.python",
@@ -44,5 +44,5 @@
 	]
 
 	// Cause I like 'cls' better than 'clear'
-	"postCreateCommand": "echo 'alias cls=clear' >> ~/.bashrc && source ~/.bashrc"
+ //	"postCreateCommand": "echo 'alias cls=clear' >> ~/.bashrc && source ~/.bashrc"
 }
