@@ -12,3 +12,5 @@ foo@bar:   git config --global url."https://github.com/".insteadOf git@github.co
 foo@bar:   git config --global url."git@github.com:".insteadOf https://github.com/
 
 ````
+
+[Working with devcontainer](https://www.youtube.com/watch?v=ftir5Dq7LoA)
