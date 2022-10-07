@@ -57,5 +57,6 @@
 	// Cause I like 'cls' better than 'clear'
     //	"postCreateCommand": "echo 'alias cls=clear' >> ~/.bashrc && source ~/.bashrc"
    // "postCreateCommand": "git config --global url.'https://github.com/'.insteadOf git@github.com:"
+    "postStartCommand": "git config --global url.'https://github.com/'.insteadOf git@github.com:"
 
 }
