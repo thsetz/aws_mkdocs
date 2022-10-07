@@ -35,3 +35,6 @@ USER vscode
 RUN curl -sSL https://install.python-poetry.org | python3 -
 ENV PATH "/home/vscode/.poetry/bin:$PATH"
 RUN /home/vscode/.local/bin/poetry config virtualenvs.in-project true
+
+# We use https with git
+# RUN git config --global url."https://github.com/".insteadOf git@github.com:
