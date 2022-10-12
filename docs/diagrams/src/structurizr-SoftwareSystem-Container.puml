@@ -1,0 +1,21 @@
+@startuml
+title Software System - Containers
+
+top to bottom direction
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(User, "User", "", $tags="")
+
+System_Boundary("SoftwareSystem_boundary", "Software System") {
+  Container(SoftwareSystem.WebApplication, "Web Application", "", $tags="")
+  Container(SoftwareSystem.Database, "Database", "", $tags="")
+}
+
+Rel_D(SoftwareSystem.WebApplication, SoftwareSystem.Database, "", $tags="")
+Rel_D(User, SoftwareSystem.WebApplication, "", $tags="")
+
+SHOW_LEGEND()
+@enduml

@@ -38,5 +38,6 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
 USER vscode
 RUN curl -sSL https://install.python-poetry.org | python3 -
 ENV PATH "/home/vscode/.poetry/bin:$PATH"
+# doc
 RUN /home/vscode/.local/bin/poetry config virtualenvs.in-project true
 

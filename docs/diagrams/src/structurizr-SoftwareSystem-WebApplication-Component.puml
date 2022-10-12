@@ -1,0 +1,22 @@
+@startuml
+title Software System - Web Application - Components
+
+top to bottom direction
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Person(User, "User", "", $tags="")
+Container(SoftwareSystem.Database, "Database", "", $tags="")
+
+Container_Boundary("SoftwareSystem.WebApplication_boundary", "Web Application") {
+  Component(SoftwareSystem.WebApplication.HomePageController, "HomePageController", "", $tags="")
+}
+
+Rel_D(User, SoftwareSystem.WebApplication.HomePageController, "", $tags="")
+Rel_D(SoftwareSystem.WebApplication.HomePageController, SoftwareSystem.Database, "", $tags="")
+
+SHOW_LEGEND()
+@enduml

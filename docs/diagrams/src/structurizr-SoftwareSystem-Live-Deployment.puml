@@ -1,0 +1,24 @@
+@startuml
+title Software System - Deployment - Live
+
+top to bottom direction
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+
+Deployment_Node(Live.AmazonWebServices, "Amazon Web Services", $tags="") {
+  Deployment_Node(Live.AmazonWebServices.EC2, "EC2", $tags="") {
+    Container(Live.AmazonWebServices.EC2.Database_1, "Database", "", $tags="")
+    Container(Live.AmazonWebServices.EC2.WebApplication_1, "Web Application", "", $tags="")
+  }
+
+  Deployment_Node(Live.AmazonWebServices.Route53, "Route 53", $descr="", $tags="")
+}
+
+Rel_D(Live.AmazonWebServices.EC2.WebApplication_1, Live.AmazonWebServices.EC2.Database_1, "", $tags="")
+Rel_D(Live.AmazonWebServices.Route53, Live.AmazonWebServices.EC2.WebApplication_1, "", $tags="")
+
+SHOW_LEGEND()
+@enduml
