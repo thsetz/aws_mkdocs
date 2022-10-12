@@ -1,0 +1,70 @@
+{
+  "version": "21.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "vpc-lookup.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "vpc-lookup.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "vpc-lookup": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://928141648496/eu-central-1",
+      "properties": {
+        "templateFile": "vpc-lookup.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::928141648496:role/cdk-hnb659fds-deploy-role-928141648496-eu-central-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::928141648496:role/cdk-hnb659fds-cfn-exec-role-928141648496-eu-central-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-928141648496-eu-central-1/241fa90bf788009e552675dfec6497a9aa4511ad5ef9a69298bd038fd88fd452.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "vpc-lookup.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::928141648496:role/cdk-hnb659fds-lookup-role-928141648496-eu-central-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "vpc-lookup.assets"
+      ],
+      "metadata": {
+        "/vpc-lookup/publicSubnets": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "publicSubnets"
+          }
+        ],
+        "/vpc-lookup/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/vpc-lookup/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/vpc-lookup/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "vpc-lookup"
+    }
+  }
+}

@@ -47,11 +47,13 @@
 	"extensions": [
 		"ms-python.python",
 		"ms-python.vscode-pylance",
+		"ms-python.black-formatter",
 		"amazonwebservices.aws-toolkit-vscode",
 		"vtrois.gitmoji-vscode",
 		"VisualStudioExptTeam.vscodeintellicode",
 		"github.vscode-pull-request-github",
-		"ms-azuretools.vscode-docker"
+		"ms-azuretools.vscode-docker",
+	    "Structurizr"
 	],
 
 	// Cause I like 'cls' better than 'clear'

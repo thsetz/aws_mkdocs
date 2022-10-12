@@ -1,19 +1,20 @@
-from aws_cdk import (
-    core,
-    aws_ec2 as ec2
-)
+import aws_cdk as cdk
+from constructs import Construct
 
 
-class VpcLookupStack(core.Stack):
-
-    def __init__(self, scope: core.Construct, id: str, **kwargs) -> None:
+class VpcLookupStack(cdk.Stack):
+    def __init__(self, scope: Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
-        # The code that defines your stack goes here
-        # vpcid = self.node.try_get_context("vpcid")
-        vpc = ec2.Vpc.from_lookup(self, "VPC", is_default=True)
+        # We get the vpcid via context
+        # - cdk [ls/deplox/init/..] -c vpcid=xxxx
+        # -edit cdk.json
+        #   add "vpcid": "THE_VALUEXXXX" to
+        # "context": {}
+        vpc_id = self.node.try_get_context("vpcid")
+        # vpc = cdk.aws_ec2.Vpc.from_lookup(self, "VPC", is_default=True)
+        vpc = cdk.aws_ec2.Vpc.from_lookup(self, "VPC", vpc_id=vpc_id)
 
-        subnets = vpc.select_subnets(subnet_type=ec2.SubnetType.PUBLIC)
+        subnets = vpc.select_subnets(subnet_type=cdk.aws_ec2.SubnetType.PUBLIC)
 
-        core.CfnOutput(self, "publicSubnets",
-                value=str(subnets.subnet_ids))
+        cdk.CfnOutput(self, "publicSubnets", value=str(subnets.subnet_ids))

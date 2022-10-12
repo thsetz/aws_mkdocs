@@ -21,6 +21,9 @@ RUN apt-get update \
     && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends nodejs npm
 
+# update nodejs   to the lastest stable version 
+# https://askubuntu.com/questions/426750/how-can-i-update-my-nodejs-to-the-latest-version
+RUN npm cache clean -f && npm install -g n && n stable
 # Install the CDK
 RUN npm install -g aws-cdk
 
